@@ -7,9 +7,9 @@ In this package you can find some functions I use frequently at my tests.
 ## Modules list
 ### fs 
 Filesystem utilities. They are useful to prepare folders and files for your tests.
-#### crypto
+###### crypto
 Cryptographic functions for your tests. Here you can find hashing functions to check file contents.
-#### tmp
+###### tmp
 Functions to create temporal folder and files.
-#### ops
+###### ops
 Functions for file operations (copy, delete, etc).
