@@ -9,7 +9,5 @@ In this package you can find some functions I use frequently at my tests.
 Filesystem utilities. They are useful to prepare folders and files for your tests.
 ###### crypto
 Cryptographic functions for your tests. Here you can find hashing functions to check file contents.
-###### tmp
-Functions to create temporal folder and files.
 ###### ops
 Functions for file operations (copy, delete, etc).
