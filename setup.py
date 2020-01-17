@@ -1,23 +1,12 @@
 import os
 from setuptools import setup, find_packages  # Always prefer setuptools over distutilss
 
+VERSION = "1.0.0"
 
 VDIST_PACKAGES_CONFIG = "packaging/coko_vdist.cnf"
 
-LONG_DESCRIPTION = """In this package you can find some functions I use frequently at my tests.
-
-## Modules list
-### fs 
-Filesystem utilities. They are useful to prepare folders and files for your tests.
-#### crypto
-Cryptographic functions for your tests. Here you can find hashing functions to check file contents.
-#### tmp
-Functions to create temporal folder and files.
-#### ops
-Functions for file operations (copy, delete, etc).
-
-More info in: https://github.com/dante-signal31/test_common_python
-"""
+with open("README.md") as readme:
+    LONG_DESCRIPTION = readme.read()
 
 
 def find_folders_with_this_name(dir_name: str) -> str:
@@ -32,7 +21,7 @@ def find_folders_with_this_name(dir_name: str) -> str:
 
 
 setup(name="test_common",
-      version="0.1.0",
+      version=VERSION,
       description="Common functions useful for tests.",
       long_description=LONG_DESCRIPTION,
       author="Dante Signal31",
@@ -51,8 +40,7 @@ setup(name="test_common",
       keywords="test",
       install_requires=[],
       zip_safe=False,
-      packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*",
-                                      "tests", "*tests*", "ci_scripts",
+      packages=find_packages(exclude=["ci_scripts",
                                       "ci_scripts.*", "*.ci_scripts",
                                       "*.ci_scripts.*", "*ci_scripts*",
                                       "ci_scripts*"]),
