@@ -10,6 +10,14 @@ group: travis_latest
 ################################
 python:
   - 3.7
+  - nightly
+
+matrix:
+  allow_failures:
+    # Actually I only build with latest stable python release, but I want
+    # to be aware in advance if any dev python version is going to crash
+    # my future builds.
+    - python: nightly
 
 ################################
 # BRANCH FILTER
