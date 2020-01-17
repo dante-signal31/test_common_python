@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages  # Always prefer setuptools over distutilss
 
-VERSION = "1.0.0-post3"
+VERSION = "1.0.0-post4"
 
 VDIST_PACKAGES_CONFIG = "packaging/coko_vdist.cnf"
 
@@ -24,6 +24,7 @@ setup(name="test_common",
       version=VERSION,
       description="Common functions useful for tests.",
       long_description=LONG_DESCRIPTION,
+      long_description_content_type="text/markdown",
       author="Dante Signal31",
       author_email="dante.signal31@gmail.com",
       license="BSD-3",
