@@ -18,7 +18,7 @@ def test_delete_file():
 
 @pytest.mark.ops
 def test_delete_existing_files():
-    temp_file_pathnames = [tempfile.mktemp()[1] for _ in range(2)]
+    temp_file_pathnames = [tempfile.mkstemp()[1] for _ in range(2)]
     for temp_file_pathname in temp_file_pathnames:
         assert os.path.exists(temp_file_pathname)
     ops.delete_files(temp_file_pathnames, False)
@@ -44,12 +44,23 @@ def test_deleting_non_existing_files():
 
 
 @pytest.mark.ops
+def test_copy_file():
+    temp_file_pathname = tempfile.mkstemp()[1]
+    temp_file_name = os.path.basename(temp_file_pathname)
+    with tempfile.TemporaryDirectory() as temp_dir:
+        expected_file_pathname = os.path.join(temp_dir, temp_file_name)
+        assert not os.path.exists(expected_file_pathname)
+        ops.copy_file(temp_file_pathname, expected_file_pathname)
+        assert os.path.exists(expected_file_pathname)
+
+
+@pytest.mark.ops
 def test_copy_files():
-    temp_file_pathnames = [tempfile.mktemp()[1] for _ in range(2)]
-    with tempfile.TemporaryDirectory as temp_dir:
+    temp_file_pathnames = [tempfile.mkstemp()[1] for _ in range(2)]
+    with tempfile.TemporaryDirectory() as temp_dir:
         ops.copy_files(temp_file_pathnames, temp_dir)
         assert all(True
                    if os.path.exists(os.path.join(temp_dir,
-                                                  os.path.split(file)[1]))
+                                                  os.path.basename(file)))
                    else False
                    for file in temp_file_pathnames)

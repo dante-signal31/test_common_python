@@ -1,6 +1,8 @@
 """
 Functions for file operations (copy, delete, etc).
 """
+import os
+import shutil
 import typing
 
 
@@ -10,7 +12,7 @@ def delete_file(file_path: str) -> None:
     :param file_path: string with the absolute path to file.
     :raise: FileNotFoundError if given file is not found.
     """
-    raise NotImplementedError
+    os.remove(file_path)
 
 
 def delete_files(files: typing.List[str], ignore_missing: bool) -> None:
@@ -20,7 +22,14 @@ def delete_files(files: typing.List[str], ignore_missing: bool) -> None:
     :param ignore_missing: If true does not return an error if any of files actually does not exists.
     :raise: FileNotFoundError if given file is not found unless ignore_missing was true.
     """
-    raise NotImplementedError
+    for file in files:
+        try:
+            delete_file(file)
+        except FileNotFoundError as e:
+            if ignore_missing:
+                continue
+            else:
+                raise e
 
 
 def copy_file(source_file_path: str, destination_file_path: str) -> None:
@@ -30,7 +39,7 @@ def copy_file(source_file_path: str, destination_file_path: str) -> None:
     :param destination_file_path: String with absolute pathname to copied file.
     :raise: FileNotFoundError if any given source file is not found.
     """
-    raise NotImplementedError
+    shutil.copy(source_file_path, destination_file_path)
 
 
 def copy_files(files: typing.List[str], destination_folder_path: str) -> None:
@@ -42,5 +51,10 @@ def copy_files(files: typing.List[str], destination_folder_path: str) -> None:
     :param destination_folder_path: Absolute path name to folder where to copy files into.
     :raise: FileNotFoundError if any given source file is not found.
     """
-    raise NotImplementedError
+    for file in files:
+        filename = os.path.basename(file)
+        destination_file_pathname = os.path.join(destination_folder_path,
+                                                 filename)
+        copy_file(file, destination_file_pathname)
+
 
