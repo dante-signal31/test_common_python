@@ -5,6 +5,10 @@ ____
 In this package you can find some functions I use frequently at my tests.
 
 ## Modules list
+### benchmark
+Utilities to measure apps performance.
+###### Timing
+Functions to take time related features. 
 ### fs 
 Filesystem utilities. They are useful to prepare folders and files for your tests.
 ###### crypto
