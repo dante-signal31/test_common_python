@@ -30,14 +30,15 @@ def test_delete_existing_files():
 def test_deleting_non_existing_files():
     _, temp_file_pathname = tempfile.mkstemp()
     assert os.path.exists(temp_file_pathname)
-    files_to_delete = [temp_file_pathname, "/tmp/123456789.nex"]
+    unexisting_file = "/tmp/123456789.nex"
+    files_to_delete = [temp_file_pathname, unexisting_file]
     # Check non-existing files are detected when ignore_missing is False.
     with pytest.raises(FileNotFoundError):
         ops.delete_files(files_to_delete, False)
     # Check non-existing files don't raise any exception when ignore_missing
     # is true.
     _, temp_file_pathname = tempfile.mkstemp()
-    files_to_delete = [temp_file_pathname, "/tmp/123456789.nex"]
+    files_to_delete = [temp_file_pathname, unexisting_file]
     assert os.path.exists(temp_file_pathname)
     ops.delete_files(files_to_delete, True)
     assert not os.path.exists(temp_file_pathname)
