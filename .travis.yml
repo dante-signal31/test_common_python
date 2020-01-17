@@ -12,12 +12,11 @@ python:
   - 3.7
   - nightly
 
-matrix:
-  allow_failures:
-    # Actually I only build with latest stable python release, but I want
-    # to be aware in advance if any dev python version is going to crash
-    # my future builds.
-    - python: nightly
+allow_failures:
+  # Actually I only build with latest stable python release, but I want
+  # to be aware in advance if any dev python version is going to crash
+  # my future builds.
+  - python: nightly
 
 ################################
 # BRANCH FILTER
@@ -32,7 +31,7 @@ branches:
 notifications:
   recipients:
     - dante.signal31@gmail.com
-  on_sucess: always
+  on_success: always
   on_failure: always
 
 ################################
