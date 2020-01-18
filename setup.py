@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages  # Always prefer setuptools over distutilss
 
-VERSION = "1.0.0-post7"
+VERSION = "1.0.0-post8"
 
 VDIST_PACKAGES_CONFIG = "packaging/coko_vdist.cnf"
 
