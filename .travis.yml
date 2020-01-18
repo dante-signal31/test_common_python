@@ -40,7 +40,7 @@ install:
   - pip install -r test-requirements.txt
   - pip install codecov pytest-cov
 script:
-  - pytest -v -n auto --cov-report=xml --cov=test_common_python
+  - pytest -v -n auto --cov-report=xml --cov=test_common
 after_success:
   - codecov
 
