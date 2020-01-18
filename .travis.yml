@@ -2,6 +2,7 @@
 # GENERAL CONFIGURATION
 ################################
 language: python
+os: linux
 dist: xenial
 group: travis_latest
 
@@ -11,12 +12,6 @@ group: travis_latest
 python:
   - 3.7
   - nightly
-
-allow_failures:
-  # Actually I only build with latest stable python release, but I want
-  # to be aware in advance if any dev python version is going to crash
-  # my future builds.
-  - python: nightly
 
 ################################
 # BRANCH FILTER
@@ -50,6 +45,11 @@ script:
 # DEPLOYMENT
 ################################
 jobs:
+  allow_failures:
+    # Actually I only build with latest stable python release, but I want
+    # to be aware in advance if any dev python version is going to crash
+    # my future builds.
+    - python: nightly
   include:
     # Update master branch.
     - stage: Branch merge to production branch
@@ -65,7 +65,7 @@ jobs:
       script: echo "Deploying to Python Package Index..."
       deploy:
         - provider: pypi
-          user: "${PYPI_USER}"
+          username: "${PYPI_USER}"
           password: "${PYPI_PASSWORD}"
           distributions: "sdist bdist_wheel"
           on:
