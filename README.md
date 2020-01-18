@@ -1,3 +1,8 @@
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![Travis (.org)](https://img.shields.io/travis/dante-signal31/test_common_python)](https://travis-ci.com/dante-signal31/test_common_python)
+![Codecov](https://img.shields.io/codecov/c/github/dante-signal31/test_common_python?token=938fb840-728d-4134-9419-ea0114bfc81a)
+[![GitHub issues](https://img.shields.io/github/issues/dante-signal31/test_common_python)](https://github.com/dante-signal31/test_common_python/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/dante-signal31/test_common_python)](https://github.com/dante-signal31/test_common_python/commits/master)
 # test_common
 Common functions useful for tests.
 ____
@@ -6,11 +11,11 @@ In this package you can find some functions I use frequently at my tests.
 
 ## Modules list
 ### benchmark
-Utilities to measure apps performance.
-###### Timing
+Package with modules to measure apps performance.
+###### timing
 Functions to take time related features. 
 ### fs 
-Filesystem utilities. They are useful to prepare folders and files for your tests.
+Package with filesystem utilities. They are useful to prepare folders and files for your tests.
 ###### crypto
 Cryptographic functions for your tests. Here you can find hashing functions to check file contents.
 ###### ops
