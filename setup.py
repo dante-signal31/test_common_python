@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages  # Always prefer setuptools over distutilss
 
-VERSION = "1.0.1"
+VERSION = "1.0.1.post1"
 
 with open("README.md") as readme:
     LONG_DESCRIPTION = readme.read()
@@ -18,7 +18,7 @@ def find_folders_with_this_name(dir_name: str) -> str:
             yield os.path.relpath(os.path.join(dir, dir_name))
 
 
-setup(name="test_common",
+setup(name="test-common",
       version=VERSION,
       description="Common functions useful for tests.",
       long_description=LONG_DESCRIPTION,
