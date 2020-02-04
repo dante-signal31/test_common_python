@@ -91,3 +91,8 @@ pip-selfcheck.json
 /.idea/inspectionProfiles/profiles_settings.xml
 /.idea/test_common_python.iml
 /.idea/vcs.xml
+/test_common.egg-info/
+/venv2/
+!/dist/
+!/build/
+/dist/

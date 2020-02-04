@@ -1,9 +1,7 @@
 import os
 from setuptools import setup, find_packages  # Always prefer setuptools over distutilss
 
-VERSION = "1.0.0-post10"
-
-VDIST_PACKAGES_CONFIG = "packaging/coko_vdist.cnf"
+VERSION = "1.0.1"
 
 with open("README.md") as readme:
     LONG_DESCRIPTION = readme.read()
@@ -29,7 +27,11 @@ setup(name="test_common",
       author_email="dante.signal31@gmail.com",
       license="BSD-3",
       url="https://github.com/dante-signal31/test_common_python",
-      download_url="https://github.com/dante-signal31/coko/releases",
+      download_url="https://pypi.org/project/test-common/",
+      packages=find_packages(exclude=["ci_scripts",
+                                      "ci_scripts.*", "*.ci_scripts",
+                                      "*.ci_scripts.*", "*ci_scripts*",
+                                      "ci_scripts*"]),
       classifiers=['Development Status :: 4 - Beta',
                    'Intended Audience :: Developers',
                    'Intended Audience :: Other Audience',
@@ -40,9 +42,5 @@ setup(name="test_common",
                    'Programming Language :: Python :: 3.7'],
       keywords="test",
       install_requires=[],
-      zip_safe=False,
-      packages=find_packages(exclude=["ci_scripts",
-                                      "ci_scripts.*", "*.ci_scripts",
-                                      "*.ci_scripts.*", "*ci_scripts*",
-                                      "ci_scripts*"]),
+      zip_safe=False
       )
