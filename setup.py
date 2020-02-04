@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages  # Always prefer setuptools over distutilss
 
-VERSION = "1.0.1.post1"
+VERSION = "1.0.2"
 
 with open("README.md") as readme:
     LONG_DESCRIPTION = readme.read()
@@ -18,7 +18,7 @@ def find_folders_with_this_name(dir_name: str) -> str:
             yield os.path.relpath(os.path.join(dir, dir_name))
 
 
-setup(name="test-common",
+setup(name="test_common",
       version=VERSION,
       description="Common functions useful for tests.",
       long_description=LONG_DESCRIPTION,
@@ -28,10 +28,7 @@ setup(name="test-common",
       license="BSD-3",
       url="https://github.com/dante-signal31/test_common_python",
       download_url="https://pypi.org/project/test-common/",
-      packages=find_packages(exclude=["ci_scripts",
-                                      "ci_scripts.*", "*.ci_scripts",
-                                      "*.ci_scripts.*", "*ci_scripts*",
-                                      "ci_scripts*"]),
+      packages=find_packages(),
       classifiers=['Development Status :: 4 - Beta',
                    'Intended Audience :: Developers',
                    'Intended Audience :: Other Audience',
