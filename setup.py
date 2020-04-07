@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages  # Always prefer setuptools over distutilss
 
-VERSION = "1.2.0.post1"
+VERSION = "1.2.1"
 
 with open("README.md") as readme:
     LONG_DESCRIPTION = readme.read()

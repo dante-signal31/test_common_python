@@ -2,7 +2,7 @@ import random
 import string
 
 
-def ramdon_string(len: int) -> str:
+def random_string(len: int) -> str:
     """ Generate a _random string of desired length.
 
     :param len: Desired character length for generated string.

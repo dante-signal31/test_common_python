@@ -5,7 +5,7 @@ import test_common.system.env as system_env
 
 def _get_not_existing_env_var_name() -> str:
     DESIRED_LENGTH = 10
-    while os.getenv(new_var_name := random_strings.ramdon_string(DESIRED_LENGTH)) is not None:
+    while os.getenv(new_var_name := random_strings.random_string(DESIRED_LENGTH)) is not None:
         continue
     return new_var_name
 
