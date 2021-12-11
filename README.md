@@ -28,3 +28,5 @@ Functions to create random strings.
 Utilities to deal with your hot operating system. Includes next modules:
 ###### env
 Functions to manipulate environment variables
+###### output
+Tools to capture outputs.
