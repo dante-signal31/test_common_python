@@ -18,7 +18,7 @@ class OutputLogger(object):
 
     When context manager scope ends, then sys.stdout is restored to work back as usual again.
 
-    Example:
+    :Example:
 
     with OutputLogger.get_logger() as logger:
         print("Hello world")
