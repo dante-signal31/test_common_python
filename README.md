@@ -3,6 +3,7 @@
 ![Codecov](https://img.shields.io/codecov/c/github/dante-signal31/test_common_python)
 [![GitHub issues](https://img.shields.io/github/issues/dante-signal31/test_common_python)](https://github.com/dante-signal31/test_common_python/issues)
 [![GitHub last commit](https://img.shields.io/github/last-commit/dante-signal31/test_common_python)](https://github.com/dante-signal31/test_common_python/commits/master)
+![PyPI](https://img.shields.io/pypi/v/test-common)
 # test_common
 Common functions useful for tests.
 ____
