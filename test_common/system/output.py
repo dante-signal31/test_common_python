@@ -6,6 +6,7 @@ Using this module you can check what your functions prints to screen.
 from __future__ import annotations
 import contextlib
 import sys
+from typing import List
 
 
 class OutputLogger(object):
@@ -21,7 +22,9 @@ class OutputLogger(object):
 
     with OutputLogger.get_logger() as logger:
         print("Hello world")
-        assert logger.output == "Hello world\n"
+        print("Bye")
+        assert "Hello world" in logger.output
+        assert logger.output == ["Hello world", "Bye"]
     """
 
     def __init__(self):
@@ -29,7 +32,8 @@ class OutputLogger(object):
         self._logged_output = []
 
     def write(self, text):
-        self._logged_output.append(text)
+        if text != "\n":
+            self._logged_output.append(text)
 
     def __repr__(self):
         return "OutputLogger()"
@@ -38,10 +42,12 @@ class OutputLogger(object):
         return self.output
 
     @property
-    def output(self):
-        """ Stored output so far. """
-        logged_text = "".join(self._logged_output)
-        return logged_text
+    def output(self) -> List[str]:
+        """ Stored output so far.
+
+        Each output entry is an element of returned list.
+        """
+        return self._logged_output
 
     @staticmethod
     @contextlib.contextmanager
