@@ -18,7 +18,7 @@ jobs:
           python-version: ["3.8", "3.9"]
           experimental: [false]
           include:
-            - python-version: "nightly"
+            - python-version: "3.10"
               experimental: true
 
       steps:
@@ -63,7 +63,7 @@ jobs:
           with:
             type: now
             from_branch: staging
-            target_branch: merge
+            target_branch: master
             github_token: ${{ secrets.GITHUB_TOKEN }}
 
     pypi-deploy:
